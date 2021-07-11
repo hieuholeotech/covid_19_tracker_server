@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31402.337
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid19Tracker.Data", "Covid19Tracker.Data\Covid19Tracker.Data.csproj", "{8A513EF6-DCE9-469D-859F-FF3060AA99F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Covid19Tracker.Data", "Covid19Tracker.Data\Covid19Tracker.Data.csproj", "{8A513EF6-DCE9-469D-859F-FF3060AA99F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid19Tracker.API", "Covid19Tracker.API\Covid19Tracker.API.csproj", "{B8E75213-B1AE-4BB4-887A-5788D3BA478E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Covid19Tracker.API", "Covid19Tracker.API\Covid19Tracker.API.csproj", "{B8E75213-B1AE-4BB4-887A-5788D3BA478E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{13651034-9608-42BC-A3E0-1A86C00CEAE2}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
