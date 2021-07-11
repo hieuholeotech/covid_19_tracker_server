@@ -1,0 +1,15 @@
+E:\11. Flutter\Covid19TrackerSolution\Covid19Tracker.Data\obj\Debug\net5.0\Covid19Tracker.Data.GeneratedMSBuildEditorConfig.editorconfig
+E:\11. Flutter\Covid19TrackerSolution\Covid19Tracker.Data\obj\Debug\net5.0\Covid19Tracker.Data.AssemblyInfoInputs.cache
+E:\11. Flutter\Covid19TrackerSolution\Covid19Tracker.Data\obj\Debug\net5.0\Covid19Tracker.Data.AssemblyInfo.cs
+E:\11. Flutter\Covid19TrackerSolution\Covid19Tracker.Data\obj\Debug\net5.0\Covid19Tracker.Data.csproj.CoreCompileInputs.cache
+E:\11. Flutter\Covid19TrackerSolution\Covid19Tracker.Data\bin\Debug\net5.0\Covid19Tracker.Data.deps.json
+E:\11. Flutter\Covid19TrackerSolution\Covid19Tracker.Data\bin\Debug\net5.0\Covid19Tracker.Data.runtimeconfig.json
+E:\11. Flutter\Covid19TrackerSolution\Covid19Tracker.Data\bin\Debug\net5.0\Covid19Tracker.Data.runtimeconfig.dev.json
+E:\11. Flutter\Covid19TrackerSolution\Covid19Tracker.Data\bin\Debug\net5.0\Covid19Tracker.Data.dll
+E:\11. Flutter\Covid19TrackerSolution\Covid19Tracker.Data\bin\Debug\net5.0\ref\Covid19Tracker.Data.dll
+E:\11. Flutter\Covid19TrackerSolution\Covid19Tracker.Data\bin\Debug\net5.0\Covid19Tracker.Data.pdb
+E:\11. Flutter\Covid19TrackerSolution\Covid19Tracker.Data\obj\Debug\net5.0\Covid19Tracker.Data.dll
+E:\11. Flutter\Covid19TrackerSolution\Covid19Tracker.Data\obj\Debug\net5.0\ref\Covid19Tracker.Data.dll
+E:\11. Flutter\Covid19TrackerSolution\Covid19Tracker.Data\obj\Debug\net5.0\Covid19Tracker.Data.pdb
+E:\11. Flutter\Covid19TrackerSolution\Covid19Tracker.Data\obj\Debug\net5.0\Covid19Tracker.Data.genruntimeconfig.cache
+E:\11. Flutter\Covid19TrackerSolution\Covid19Tracker.Data\obj\Debug\net5.0\Covid19Tracker.Data.csproj.AssemblyReference.cache
