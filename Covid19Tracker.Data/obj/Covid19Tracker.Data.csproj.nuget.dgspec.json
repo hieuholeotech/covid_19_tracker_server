@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\11. Flutter\\Covid19TrackerSolution\\Covid19Tracker.Data\\Covid19Tracker.Data.csproj": {}
+    "D:\\2. Flutter\\covid_19_tracker_server\\Covid19Tracker.Data\\Covid19Tracker.Data.csproj": {}
   },
   "projects": {
-    "E:\\11. Flutter\\Covid19TrackerSolution\\Covid19Tracker.Data\\Covid19Tracker.Data.csproj": {
+    "D:\\2. Flutter\\covid_19_tracker_server\\Covid19Tracker.Data\\Covid19Tracker.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\11. Flutter\\Covid19TrackerSolution\\Covid19Tracker.Data\\Covid19Tracker.Data.csproj",
+        "projectUniqueName": "D:\\2. Flutter\\covid_19_tracker_server\\Covid19Tracker.Data\\Covid19Tracker.Data.csproj",
         "projectName": "Covid19Tracker.Data",
-        "projectPath": "E:\\11. Flutter\\Covid19TrackerSolution\\Covid19Tracker.Data\\Covid19Tracker.Data.csproj",
-        "packagesPath": "C:\\Users\\Quoc Hieu\\.nuget\\packages\\",
-        "outputPath": "E:\\11. Flutter\\Covid19TrackerSolution\\Covid19Tracker.Data\\obj\\",
+        "projectPath": "D:\\2. Flutter\\covid_19_tracker_server\\Covid19Tracker.Data\\Covid19Tracker.Data.csproj",
+        "packagesPath": "C:\\Users\\KimAnh\\.nuget\\packages\\",
+        "outputPath": "D:\\2. Flutter\\covid_19_tracker_server\\Covid19Tracker.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Quoc Hieu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\KimAnh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
