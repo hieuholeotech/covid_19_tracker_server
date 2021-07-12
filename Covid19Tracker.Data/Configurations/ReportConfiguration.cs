@@ -4,13 +4,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Covid19Tracker.Data.Configurations
 {
-    public class AppUserConfiguration:IEntityTypeConfiguration<AppUser>
+    public class ReportConfiguration : IEntityTypeConfiguration<Report>
     {
-        public void Configure (EntityTypeBuilder<AppUser> builder)
+        public void Configure(EntityTypeBuilder<Report> builder)
         {
-            builder.ToTable("AppUsers");
+            builder.ToTable("Reports");
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.FullName).HasMaxLength(255);
         }
     }
 }

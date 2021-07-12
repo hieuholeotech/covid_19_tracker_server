@@ -33,8 +33,7 @@ namespace Covid19Tracker.Data.Extensions
                 EmailConfirmed = true,
                 PasswordHash = hasher.HashPassword(null, "Abc@123"),
                 SecurityStamp = string.Empty,
-                LastName = "Administrator",
-                FirstName = "", 
+                FullName = "Administrator",
                 UrlAvatar = "/upload/avatar/admin1.jpg",
                 Address = "Đà Nẵng"
             });

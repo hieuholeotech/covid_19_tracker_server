@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Covid19Tracker.Data.Migrations
 {
     [DbContext(typeof(DataDbContext))]
-    [Migration("20210711190518_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210711225147_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,7 +56,7 @@ namespace Covid19Tracker.Data.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "ecc56c04-34c9-4dad-82d7-edf3dfed8b0e",
+                            ConcurrencyStamp = "b767d379-477b-4c7d-85c9-d5984192d869",
                             Description = "Administrator role",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -75,9 +75,6 @@ namespace Covid19Tracker.Data.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Bio")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -92,16 +89,15 @@ namespace Covid19Tracker.Data.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("FirstName")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
-                    b.Property<string>("LastName")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<bool>("Gender")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("IdentityCard")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -139,9 +135,6 @@ namespace Covid19Tracker.Data.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<string>("Website")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -160,22 +153,180 @@ namespace Covid19Tracker.Data.Migrations
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
                             Address = "Đà Nẵng",
-                            ConcurrencyStamp = "59bb3c3e-e229-4c37-b385-310085f761c0",
+                            ConcurrencyStamp = "05ccb546-7323-43e6-b930-f5fe6df18f4b",
                             DateOfBirth = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "covidtracker@gmail.com",
                             EmailConfirmed = true,
-                            FirstName = "",
-                            LastName = "Administrator",
+                            FullName = "Administrator",
+                            Gender = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "COVIDTRACKER@GMAIL.COM",
                             NormalizedUserName = "COVIDTRACKER@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECD9M8dYG2Lv25hiV5gELqSD0s2bp+9DaQ7p6M8iVGFtNreDD5RQZipMcOS4UMFFWg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEH7NOeD15lLfxNCooKMPxGSsaWdvRnvlVXb949vZOIOaW0l3qO/t8foUjRHTIUyrjw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
                             UrlAvatar = "/upload/avatar/admin1.jpg",
                             UserName = "covidtracker@gmail.com"
                         });
+                });
+
+            modelBuilder.Entity("Covid19Tracker.Data.Entities.Health", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AppUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DateFollow")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("OtherSymptoms")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isCough")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isDifficultyBreathing")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isFever")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isPneumonia")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isSoreThroat")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isTiredness")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Healths");
+                });
+
+            modelBuilder.Entity("Covid19Tracker.Data.Entities.News", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<Guid?>("AppUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Slug")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ViewCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("News");
+                });
+
+            modelBuilder.Entity("Covid19Tracker.Data.Entities.Report", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AppUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DetectionTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Place")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Reports");
+                });
+
+            modelBuilder.Entity("Covid19Tracker.Data.Entities.Schedule", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AppUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ScheduleDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Schedules");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -284,6 +435,46 @@ namespace Covid19Tracker.Data.Migrations
                     b.ToTable("AppUserTokens");
                 });
 
+            modelBuilder.Entity("Covid19Tracker.Data.Entities.Health", b =>
+                {
+                    b.HasOne("Covid19Tracker.Data.Entities.AppUser", "AppUser")
+                        .WithMany("Healths")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("Covid19Tracker.Data.Entities.News", b =>
+                {
+                    b.HasOne("Covid19Tracker.Data.Entities.AppUser", "AppUser")
+                        .WithMany("News")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("Covid19Tracker.Data.Entities.Report", b =>
+                {
+                    b.HasOne("Covid19Tracker.Data.Entities.AppUser", "AppUser")
+                        .WithMany("Reports")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("Covid19Tracker.Data.Entities.Schedule", b =>
+                {
+                    b.HasOne("Covid19Tracker.Data.Entities.AppUser", "AppUser")
+                        .WithMany("Schedules")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("Covid19Tracker.Data.Entities.AppRole", null)
@@ -333,6 +524,17 @@ namespace Covid19Tracker.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Covid19Tracker.Data.Entities.AppUser", b =>
+                {
+                    b.Navigation("Healths");
+
+                    b.Navigation("News");
+
+                    b.Navigation("Reports");
+
+                    b.Navigation("Schedules");
                 });
 #pragma warning restore 612, 618
         }

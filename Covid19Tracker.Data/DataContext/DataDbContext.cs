@@ -33,6 +33,11 @@ namespace Covid19Tracker.Data.DataContext
             modelBuilder.ApplyConfiguration(new AppUserConfiguration());
             modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
 
+            modelBuilder.ApplyConfiguration(new HealthConfiguration());
+            modelBuilder.ApplyConfiguration(new NewsConfiguration());
+            modelBuilder.ApplyConfiguration(new ReportConfiguration());
+            modelBuilder.ApplyConfiguration(new ScheduleConfiguration());
+
 
             modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
             modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId });
@@ -46,5 +51,10 @@ namespace Covid19Tracker.Data.DataContext
         }
         public DbSet<AppRole> AppRoles { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
+
+        public DbSet<Health> Healths { get; set; }
+        public DbSet<News> News { get; set; }
+        public DbSet<Report> Reports { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
     }
 }

@@ -41,10 +41,12 @@ namespace Covid19Tracker.API.Controllers
             if (result.Succeeded)
             {
                 var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
-                return await GenerateJwtToken(model.Email, appUser);
+
+                var token = await GenerateJwtToken(model.Email, appUser);
+                return Ok(token);
             }
 
-            throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
+            return Unauthorized();
         }
 
         [AllowAnonymous]
@@ -65,15 +67,7 @@ namespace Covid19Tracker.API.Controllers
                 return await GenerateJwtToken(model.Email, user);
             }
 
-            throw new ApplicationException("UNKNOWN_ERROR");
-        }
-
-        [Authorize]
-        [HttpGet]
-        [Route("protected")]
-        public async Task<object> Protected()
-        {
-            return "Protected area";
+            return BadRequest();
         }
 
         private async Task<object> GenerateJwtToken(string email, AppUser user)
@@ -82,7 +76,7 @@ namespace Covid19Tracker.API.Controllers
             {
                 new Claim(JwtRegisteredClaimNames.Sub, email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-                // new Claim(ClaimTypes.NameIdentifier, user.Id)
+                //new Claim(ClaimTypes.NameIdentifier, user.Id)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtKey"]));
